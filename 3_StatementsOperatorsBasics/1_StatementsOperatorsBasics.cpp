@@ -167,8 +167,6 @@ int main()
 	cout<<num1<<" > "<<upper<<" is "<<(num1 <= upper)<<endl;
 
 	cout<<endl;
-	cout<<endl;
-
 	return 0;
 
 }

@@ -62,8 +62,6 @@ int main()
 	cout<<"Do you need to wear a coat using AND?"<<wear_coat<<endl;
 
 	cout<<endl;
-	cout<<endl;
-
 	return 0;
 
 }
