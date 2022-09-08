@@ -1,69 +1,79 @@
+/**
+ * Statements/Operators - S3.3
+ * C++ 14 
+ * Example of Statements/Operators
+ */
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	//Define the conversion values in cents 
-	const int dollar_value = 100;
-	const int quarter_value = 25;
-	const int dime_value = 10;
-	const int nickel_value = 5;
+	// Conversion Value in Cents
+	const int dollarValue {100};
+	const int quarterValue{25};
+	const int dimeValue {10};
+	const int nickelValue {5};
+
+	int changeAmount {0}; 
+
+	cout<<"Enter an amount in cents:\n";
+	cin>>changeAmount;
+	cout<<"Method 1: Without using modulus operator.";
+	int balance {0};
+	int dollars {0};
+	int quarters {0};
+	int dimes {0};
+	int nickels {0};
+	int pennies {0};
+
+	dollars = changeAmount / dollarValue; 
+	balance = changeAmount - (dollars * dollarValue);
 	
-	int change_amount;
-	
-	//Solution 1 will not use modulo operator 
-	cout<<"Enter the amount in cents : ";
-	cin>>change_amount;
-	
-	int balance, dollars, quarters, dimes, nickels, pennies;
-	dollars = change_amount/dollar_value;
-	balance = change_amount - (dollars * dollar_value);
-	
-	quarters = balance/quarter_value;
-	balance -= quarters*quarter_value;
-	
-	dimes = balance/dime_value;
-	balance -= dimes*dime_value;
-	
-	nickels = balance/nickel_value;
-	balance -= nickels*nickel_value; 
-	
-	pennies = balance; 
-	
-	cout<<"\n You can provide this change as follows: "<<endl;
-	cout<<"Dollars: "<<dollars<<endl;
-	cout<<"Quarters: "<<quarters<<endl;
-	cout<<"Dimes: "<<dimes<<endl;
-	cout<<"Nickels: "<<nickels<<endl;
-	cout<<"Pennies: "<<pennies<<endl;
-	
-	
-	
-	//Solution 2 using the modulo operator:
-	balance = dollars = quarters = dimes = nickels = pennies = 0; 
-	dollars = change_amount / dollar_value; 
-	balance = change_amount % dollar_value;
-	
-	quarters = balance / quarter_value;
-	balance %= quarter_value;
-	
-	dimes = balance / dime_value;
-	balance %= dime_value;
-	
-	nickels = balance / nickel_value;
-	balance %= nickel_value;
-	
+	quarters = balance / quarterValue;
+	balance = balance - (quarters * quarterValue);
+
+	dimes = balance / dimeValue;
+	balance = balance - (dimes * dimeValue);
+
+	nickels = balance / nickelValue; 
+	balance = balance - (nickels * nickelValue);
+
 	pennies = balance;
-	
-	cout<<"\n You can provide this change as follows: "<<endl;
-	cout<<"Dollars: "<<dollars<<endl;
-	cout<<"Quarters: "<<quarters<<endl;
-	cout<<"Dimes: "<<dimes<<endl;
-	cout<<"Nickels: "<<nickels<<endl;
-	cout<<"Pennies: "<<pennies<<endl;	
-	
-	
-	cout<<endl;
+	cout<<"You can provide this change as follows: \n";
+	cout<<"dollars		:"<<dollars<<endl;
+	cout<<"quarters		:"<<quarters<<endl;
+	cout<<"dimes		:"<<dimes<<endl;
+	cout<<"nickels		:"<<nickels<<endl;
+	cout<<"pennies		:"<<pennies<<endl;
+
+	cout<<"Option with Modulus Operator:\n";
+
+	balance = 0;
+	dollars = 0;
+	quarters = 0;
+	dimes = 0;
+	nickels = 0;
+	pennies = 0;
+
+	dollars = changeAmount / dollarValue;
+	balance = changeAmount % dollarValue;
+
+	quarters = balance / quarterValue;
+	balance = balance % quarterValue;
+
+	dimes = balance / dimeValue;
+	balance = balance % dimeValue;
+
+	nickels = balance / nickelValue;
+	balance = balance % nickelValue;
+
+	pennies = balance;
+
+	cout<<"You can provide this change as follows: \n";
+	cout<<"dollars		:"<<dollars<<endl;
+	cout<<"quarters		:"<<quarters<<endl;
+	cout<<"dimes		:"<<dimes<<endl;
+	cout<<"nickels		:"<<nickels<<endl;
+	cout<<"pennies		:"<<pennies<<endl;
 	return 0;
-	
 }
